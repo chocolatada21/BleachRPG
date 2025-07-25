@@ -1,0 +1,273 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "3156d925916ce2c91507e23f7457fe33",
+    "entities": [
+      {
+        "tableName": "Character",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`characterId` INTEGER NOT NULL, `gold` INTEGER NOT NULL, `kido` INTEGER NOT NULL, `characterClassId` INTEGER NOT NULL, `name` TEXT NOT NULL, `health` INTEGER NOT NULL, `currentHealth` INTEGER NOT NULL, `reiatsu` INTEGER NOT NULL, `physical` INTEGER NOT NULL, `defense` INTEGER NOT NULL, `criticalProbability` INTEGER NOT NULL, `criticalDamage` INTEGER NOT NULL, `dodgeProbability` INTEGER NOT NULL, PRIMARY KEY(`characterId`))",
+        "fields": [
+          {
+            "fieldPath": "characterId",
+            "columnName": "characterId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gold",
+            "columnName": "gold",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kido",
+            "columnName": "kido",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "characterClassId",
+            "columnName": "characterClassId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "health",
+            "columnName": "health",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "currentHealth",
+            "columnName": "currentHealth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reiatsu",
+            "columnName": "reiatsu",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "physical",
+            "columnName": "physical",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defense",
+            "columnName": "defense",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "criticalProbability",
+            "columnName": "criticalProbability",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "criticalDamage",
+            "columnName": "criticalDamage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dodgeProbability",
+            "columnName": "dodgeProbability",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "characterId"
+          ]
+        }
+      },
+      {
+        "tableName": "CharacterClass",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`characterClassId` INTEGER NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`characterClassId`))",
+        "fields": [
+          {
+            "fieldPath": "characterClassId",
+            "columnName": "characterClassId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "characterClassId"
+          ]
+        }
+      },
+      {
+        "tableName": "CharacterKidoSkillCrossRef",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`characterId` INTEGER NOT NULL, `skillId` INTEGER NOT NULL, PRIMARY KEY(`characterId`, `skillId`))",
+        "fields": [
+          {
+            "fieldPath": "characterId",
+            "columnName": "characterId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "skillId",
+            "columnName": "skillId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "characterId",
+            "skillId"
+          ]
+        }
+      },
+      {
+        "tableName": "CharacterPhysicalSkillCrossRef",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`characterId` INTEGER NOT NULL, `skillId` INTEGER NOT NULL, PRIMARY KEY(`characterId`, `skillId`))",
+        "fields": [
+          {
+            "fieldPath": "characterId",
+            "columnName": "characterId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "skillId",
+            "columnName": "skillId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "characterId",
+            "skillId"
+          ]
+        }
+      },
+      {
+        "tableName": "CKidoSkill",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`kidoSKillId` INTEGER NOT NULL, `name` TEXT NOT NULL, `multiplier` REAL NOT NULL, `reiatsuCost` INTEGER NOT NULL, `goldNeeded` INTEGER NOT NULL, `reiatsuNeeded` INTEGER NOT NULL, PRIMARY KEY(`kidoSKillId`))",
+        "fields": [
+          {
+            "fieldPath": "kidoSKillId",
+            "columnName": "kidoSKillId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "multiplier",
+            "columnName": "multiplier",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reiatsuCost",
+            "columnName": "reiatsuCost",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "goldNeeded",
+            "columnName": "goldNeeded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reiatsuNeeded",
+            "columnName": "reiatsuNeeded",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "kidoSKillId"
+          ]
+        }
+      },
+      {
+        "tableName": "CPhysicalSkill",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`physicalSKillId` INTEGER NOT NULL, `name` TEXT NOT NULL, `multiplier` REAL NOT NULL, `reiatsuCost` INTEGER NOT NULL, `goldNeeded` INTEGER NOT NULL, `reiatsuNeeded` INTEGER NOT NULL, PRIMARY KEY(`physicalSKillId`))",
+        "fields": [
+          {
+            "fieldPath": "physicalSKillId",
+            "columnName": "physicalSKillId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "multiplier",
+            "columnName": "multiplier",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reiatsuCost",
+            "columnName": "reiatsuCost",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "goldNeeded",
+            "columnName": "goldNeeded",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reiatsuNeeded",
+            "columnName": "reiatsuNeeded",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "physicalSKillId"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3156d925916ce2c91507e23f7457fe33')"
+    ]
+  }
+}
