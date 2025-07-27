@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9a501030e04d6b38876987e2340936b2",
+    "identityHash": "95d93b00370239dad5323926148f439e",
     "entities": [
       {
         "tableName": "Character",
@@ -732,7 +732,7 @@
       },
       {
         "tableName": "BossEquipmentCrossRef",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`bossId` INTEGER NOT NULL, `equipmentId` INTEGER NOT NULL, `probability` REAL NOT NULL, PRIMARY KEY(`bossId`, `equipmentId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`bossId` INTEGER NOT NULL, `equipmentId` INTEGER NOT NULL, `probability` REAL NOT NULL, `goldValue` INTEGER NOT NULL, PRIMARY KEY(`bossId`, `equipmentId`))",
         "fields": [
           {
             "fieldPath": "bossId",
@@ -751,6 +751,12 @@
             "columnName": "probability",
             "affinity": "REAL",
             "notNull": true
+          },
+          {
+            "fieldPath": "goldValue",
+            "columnName": "goldValue",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -764,7 +770,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9a501030e04d6b38876987e2340936b2')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '95d93b00370239dad5323926148f439e')"
     ]
   }
 }

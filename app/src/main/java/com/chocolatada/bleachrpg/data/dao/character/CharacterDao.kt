@@ -11,4 +11,6 @@ interface CharacterDao {
     fun insert(character: Character)
     @Query("SELECT * FROM Character")
     fun getAll(): List<Character>
+    @Query("SELECT COUNT(*) FROM Character")
+    fun countCharacters(): Int
 }
